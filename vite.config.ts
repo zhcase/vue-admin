@@ -82,6 +82,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           // modifyVars: generateModifyVars(),
           javascriptEnabled: true,
         },
+        sass: {
+          // modifyVars: generateModifyVars(),
+          javascriptEnabled: true,
+        },
       },
     },
 
