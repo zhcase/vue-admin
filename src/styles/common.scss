@@ -1,0 +1,17 @@
+
+
+// rem缩放 padding
+@for $i from  1 to 10{
+    .p-#{$i}{
+        padding:#{$i}rem;
+    }
+}
+// 宽度百分比
+@for $i from  1 to 100{
+    .ptw-#{$i}{
+        width:#{$i}+'%';
+    }
+    .pth-#{$i}{
+        width:#{$i}+'%';
+    }
+}

@@ -6,19 +6,56 @@
  * @FilePath: /admin-base/vue-admin/src/views/sys/login/Login.vue
 -->
 <template>
-  <div class="login-container">222 </div>
+  <!-- login -->
+  <div class="login">
+    <div class="login__main">
+      <div class="login__main__container">
+        <h2>元道后台管理系统</h2>
+        <LoginForm />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-export default defineComponent({});
+import LoginForm from './LoginForm.vue';
+export default defineComponent({
+  components: {
+    LoginForm,
+  },
+});
 </script>
 
 <style lang='scss' scoped>
-.login-container {
+.login {
   min-height: 100%;
   width: 100%;
-  background-color: #2d3a4b;
+
+  background-color: aqua;
+  height: 100%;
+  background-color: #f0f2f5;
   overflow: hidden;
+  &__main {
+    width: 100%;
+    background: url('@/assets/images/body.8aa7c4a6.svg');
+    min-height: 100%;
+    &__container {
+      height: 550px;
+      top: 50%;
+      position: absolute;
+      left: 50%;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+
+      /* background-color: #fff; */
+
+      transform: translate(-50%, -50%);
+      h2 {
+        text-align: center;
+      }
+    }
+  }
 }
 </style>
