@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-05-19 16:36:14
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-02 14:04:33
+ * @LastEditTime: 2021-06-04 11:11:08
  * @FilePath: /vue-admin/src/App.vue
 -->
 <template>
@@ -10,13 +10,10 @@
 </template>
 
 <script lang='ts'>
-import HelloWorld from './components/HelloWorld.vue';
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 export default defineComponent({
-  components: {
-    HelloWorld,
-  },
+  components: {},
   setup() {
     console.log(useRouter());
   },
