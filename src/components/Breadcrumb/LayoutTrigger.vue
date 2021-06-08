@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-06-04 11:22:08
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-04 11:45:46
+ * @LastEditTime: 2021-06-08 14:47:28
  * @FilePath: /vue-admin/src/components/Breadcrumb/LayoutTrigger.vue
 -->
 <template>
@@ -15,6 +15,8 @@
   </div>
 </template>
 
+<script lang="ts">
+</script>
 
 <style lang='scss' scoped>
 .layout-trigger {

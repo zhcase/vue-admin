@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-06-02 11:23:12
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-07 10:29:37
+ * @LastEditTime: 2021-06-08 14:56:39
  * @FilePath: /vue-admin/src/layout/index.vue
 -->
 <template>
@@ -10,9 +10,9 @@
     <el-container>
       <Sidebar></Sidebar>
       <el-container>
-        <!-- <Navbar /> -->
+        <Navbar />
         <!-- <div style="height: 50px">23423孙伟伟无</div> -->
-        <el-header class="yd-header">Header</el-header>
+        <!-- <el-header class="yd-header">Header</el-header> -->
         <LayoutTab />
 
         <!-- 23232323 -->
@@ -27,6 +27,7 @@ import Sidebar from './components/Sidebar/index.vue';
 import Navbar from './Navbar.vue';
 import LayoutTab from '/@/components/Tabs/LayoutTab.vue';
 export default defineComponent({
+  name: 'Home',
   components: {
     Sidebar,
     Navbar,

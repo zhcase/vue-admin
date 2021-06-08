@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-06-02 16:33:13
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-04 11:41:26
+ * @LastEditTime: 2021-06-08 14:30:52
  * @FilePath: /vue-admin/src/components/Hamburger/index.vue
 -->
 <template>
@@ -14,6 +14,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  name: 'Hamburger',
   setup(props, context) {
     console.log(context);
     function toggleClick() {

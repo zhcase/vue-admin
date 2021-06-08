@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-06-02 11:54:38
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-02 15:09:24
+ * @LastEditTime: 2021-06-08 14:30:10
  * @FilePath: /vue-admin/src/layout/components/Sidebar/index.vue
 -->
 
@@ -56,6 +56,7 @@ import { defineComponent, ref } from 'vue';
 import Logo from './Logo.vue';
 import logoUrl from '/@/assets/images/icon.png';
 export default defineComponent({
+  name: 'Sidebar',
   components: {
     Logo,
   },

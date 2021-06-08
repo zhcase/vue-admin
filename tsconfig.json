@@ -36,7 +36,8 @@
     "build/**/*.ts",
     "build/**/*.d.ts",
     "mock/**/*.ts",
-    "vite.config.js"
+    "vite.config.js",
+    "src/utils/http/axios/index.js"
   ],
   "exclude": ["node_modules", "dist", "**/*.js"]
 }

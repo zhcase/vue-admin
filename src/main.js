@@ -7,4 +7,4 @@ import 'normalize.css';
 import '/@/styles/index.scss';
 import '/@/styles/common.scss';
 
-createApp(App).use(ElementPlus).use(router).mount('#app')
+createApp(App).use(router).mount('#app')

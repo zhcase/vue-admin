@@ -24,10 +24,16 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
+import { ElInput, ElFormItem, ElButton } from 'element-plus';
 // import { useUserStore } from '/@/store/modules/user';
-// import {} from ''
+import { useMessage } from '/@/hooks/web/useMessage';
 export default defineComponent({
   name: 'LoginForm',
+  components: {
+    ElInput,
+    ElFormItem,
+    ElButton,
+  },
   setup() {
     // const userStore = useUserStore();
     const formData = reactive({
@@ -36,6 +42,8 @@ export default defineComponent({
     });
     // 登陆提交
     async function handleLogin() {
+      const { createNotify } = useMessage();
+      createNotify();
       // const userInfo = await userStore.login();
     }
 
