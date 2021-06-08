@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-06-02 11:23:12
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-04 14:26:59
+ * @LastEditTime: 2021-06-07 10:29:37
  * @FilePath: /vue-admin/src/layout/index.vue
 -->
 <template>
@@ -10,11 +10,12 @@
     <el-container>
       <Sidebar></Sidebar>
       <el-container>
-        <Navbar />
-        <div style="height: 50px">23423孙伟伟无</div>
-        <!-- <LayoutTab /> -->
-        <!-- <el-header class="yd-header">Header</el-header> -->
+        <!-- <Navbar /> -->
+        <!-- <div style="height: 50px">23423孙伟伟无</div> -->
+        <el-header class="yd-header">Header</el-header>
+        <LayoutTab />
 
+        <!-- 23232323 -->
         <el-main>Ma12223232in</el-main>
       </el-container>
     </el-container>

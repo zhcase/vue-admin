@@ -16,3 +16,30 @@ body {
   #app {
     height: 100%;
   }
+
+  .yd-layout-tabs{
+    .el-tabs--border-card>.el-tabs__header{
+      background-color: #fff;
+      border-bottom:none;
+    }
+    .yd-layout-tabs .el-tabs--border-card > .el-tabs__header{
+      
+    }
+    .el-tabs--border-card>.el-tabs__header .el-tabs__item{
+    height: calc(30px - 2px);
+  
+    font-size: 12px;
+    line-height: calc(30px - 2px);
+    color: rgba(0,0,0,.85);
+    background-color: #fff;
+    transition: none;
+    margin-right:10px;
+    border-bottom: none;
+    border: 1px solid #d9d9d9!important;
+    }
+    .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
+      color: #fff!important;
+    background: #0960bd;
+    
+    }
+  }
