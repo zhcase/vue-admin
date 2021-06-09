@@ -9,21 +9,28 @@ import { createWebHistory, RouteRecordRaw } from 'vue-router';
 
 
 import { createRouter,createWebHashHistory } from 'vue-router';
-import { basicRoutes, LoginRoute } from './routers/index';
-
-console.log(basicRoutes);
+import { basicRoutes } from './routers/index';
 
 
-const routes = [
-    { path: '/',name:'Login', component: ()=>import('/@/views/sys/login/Login.vue') },
-  ]
+
 // app router
+console.log(basicRoutes);
 
 const router=createRouter({
     // history:createWebHashHistory(import.meta.env.BASE_URL),
     history: createWebHashHistory(),
-    routes:(basicRoutes as any)
+    routes:(basicRoutes as any),
+    scrollBehavior: () => ({ left: 0, top: 0 }),
+
 })
+
+export function resetRouter(){
+  router.getRoutes().forEach((route) => {
+    console.log(route);
+    
+  }
+  )
+}
 
 
 export default router;

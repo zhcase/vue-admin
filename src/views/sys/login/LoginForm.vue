@@ -43,7 +43,7 @@ export default defineComponent({
     // 登陆提交
     async function handleLogin() {
       const { createNotify } = useMessage();
-      createNotify();
+      createNotify({},'sucess');
       // const userInfo = await userStore.login();
     }
 

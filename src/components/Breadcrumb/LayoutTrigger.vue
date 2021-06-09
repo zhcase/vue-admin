@@ -16,6 +16,11 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
+import { ElBreadcrumb, ElBreadcrumbItem } from 'element-plus';
+export default defineComponent({
+  components: { ElBreadcrumb, ElBreadcrumbItem },
+});
 </script>
 
 <style lang='scss' scoped>

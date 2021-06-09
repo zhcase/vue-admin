@@ -41,6 +41,7 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { ElDropdown, ElDropdownItem } from 'element-plus';
 import Hamburger from '/@/components/Hamburger/index.vue';
 import LayoutTrigger from '/@/components/Breadcrumb/LayoutTrigger.vue';
 export default defineComponent({
@@ -48,6 +49,8 @@ export default defineComponent({
   components: {
     Hamburger,
     LayoutTrigger,
+    ElDropdown,
+    ElDropdownItem,
   },
   setup() {
     function handleClick() {

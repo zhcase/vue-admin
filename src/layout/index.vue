@@ -8,14 +8,18 @@
 <template>
   <div class="app-wrapper">
     <el-container>
-      <Sidebar></Sidebar>
+      <!-- side Menu -->
+      <el-aside class="app-wrapper__sidebar">
+        <Sidebar></Sidebar>
+      </el-aside>
+      <!-- right content -->
       <el-container>
-        <Navbar />
-        <!-- <div style="height: 50px">23423孙伟伟无</div> -->
-        <!-- <el-header class="yd-header">Header</el-header> -->
+        <!-- navbar -->
+        <el-header class="yd-header">
+          <Navbar />
+        </el-header>
         <LayoutTab />
-
-        <!-- 23232323 -->
+        <!-- page view -->
         <el-main>Ma12223232in</el-main>
       </el-container>
     </el-container>
@@ -23,6 +27,8 @@
 </template>
 <script lang='ts'>
 import { defineComponent } from 'vue';
+import { ElHeader, ElContainer, ElMain } from 'element-plus';
+
 import Sidebar from './components/Sidebar/index.vue';
 import Navbar from './Navbar.vue';
 import LayoutTab from '/@/components/Tabs/LayoutTab.vue';
@@ -31,7 +37,10 @@ export default defineComponent({
   components: {
     Sidebar,
     Navbar,
+    ElContainer,
+    ElHeader,
     LayoutTab,
+    ElMain,
   },
   setup() {},
 });
@@ -43,6 +52,14 @@ export default defineComponent({
   position: relative;
   height: 100%;
   width: 100%;
+  &__sidebar {
+    min-width: 210px;
+    background-color: #001528;
+    overflow: hidden;
+  }
+  .el-header {
+    padding: 0;
+  }
   .el-container {
     height: 100%;
     width: 100%;
