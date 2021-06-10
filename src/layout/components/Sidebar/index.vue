@@ -16,40 +16,26 @@
     @close="handleClose"
   >
     <Logo :logo="logoUrl" :title="title" />
-    <el-submenu index="1" v-for="(items, indexs) of routerList" :key="indexs">
-      <template #title v-if="items.meta">
-        <i class="el-icon-location"></i>
-        <span>{{ items.meta.title }}</span>
-      </template>
-      <template v-if="items.children">
-        <el-menu-item-group>
-          <template #title>分组一</template>
-
-          <el-menu-item index="1-1" v-for="(item, index) of items.children" :key="index">{{
-            item.meta.title
-          }}</el-menu-item>
-        </el-menu-item-group>
-      </template>
-      <!-- <el-menu-item-group title="分组2">
-        <el-menu-item index="1-3">选项3</el-menu-item>
-      </el-menu-item-group>
-      <el-submenu index="1-4">
-        <template #title>选项4</template>
-        <el-menu-item index="1-4-1">选项1</el-menu-item>
-      </el-submenu> -->
-    </el-submenu>
-    <!-- <el-menu-item index="2">
-      <i class="el-icon-menu"></i>
-      <template #title>导航二</template>
-    </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <i class="el-icon-document"></i>
-      <template #title>导航三</template>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <i class="el-icon-setting"></i>
-      <template #title>导航四</template>
-    </el-menu-item> -->
+    <template v-for="(items, indexs) of routerList" :key="indexs">
+      <el-submenu :index="items.path" v-if="items.children">
+        <template #title v-if="items.meta">
+          <i :class="items.meta.icon"></i>
+          <span>{{ items.meta.title }}</span>
+        </template>
+        <template v-if="items.children">
+          <el-menu-item-group>
+            <template #title></template>
+            <el-menu-item :index="item.path" v-for="(item, index) of items.children" :key="index">
+              {{ item.meta.title }}</el-menu-item
+            >
+          </el-menu-item-group>
+        </template>
+      </el-submenu>
+      <el-menu-item :index="items.path" v-else>
+        <i :class="items.meta.icon"></i>
+        <template #title>{{ items.meta.title }}</template>
+      </el-menu-item>
+    </template>
   </el-menu>
 </template>
 
@@ -58,6 +44,7 @@ import { defineComponent, ref, getCurrentInstance } from 'vue';
 import Logo from './Logo.vue';
 import { ElMenu, ElMenuItem, ElMenuItemGroup, ElSubmenu } from 'element-plus';
 import { useRouter } from 'vue-router';
+import { useRouterStore } from '/@/store/modules/router';
 import logoUrl from '/@/assets/images/icon.png';
 export default defineComponent({
   name: 'Sidebar',
@@ -73,12 +60,16 @@ export default defineComponent({
     console.log(useRouter());
     const { ctx } = getCurrentInstance();
     console.log(ctx);
-    const { getRoutes } = useRouter();
-    console.log(getRoutes());
+    const getRouterTree = useRouterStore();
+    // console.log(getRouterTreee.getRouter);
+    const routerList = getRouterTree.getRouter;
+    console.log(routerList);
+    // const {  } = useRouter();
+    // console.log(getRoutes());
     return {
       logoUrl,
       title,
-      routerList: getRoutes(),
+      routerList,
     };
   },
 });
