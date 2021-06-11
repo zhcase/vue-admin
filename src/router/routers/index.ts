@@ -29,7 +29,8 @@ export const LayoutRoute = {
   path: '/',
   name: 'Home',
   hidden: true,
-  component: () => import('/@/layout/index.vue'),
+  // component: () => import('/@/layout/index.vue'),
+  redirect: '/dashboard',
 };
 console.log(routeModuleList);
 

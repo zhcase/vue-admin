@@ -20,7 +20,9 @@
         </el-header>
         <LayoutTab />
         <!-- page view -->
-        <el-main>Ma12223232in</el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>

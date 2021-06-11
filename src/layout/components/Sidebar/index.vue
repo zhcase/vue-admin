@@ -13,35 +13,18 @@
     @open="handleOpen"
     background-color="#001528"
     text-color="#fff"
+    :router="true"
     @close="handleClose"
   >
     <Logo :logo="logoUrl" :title="title" />
-    <template v-for="(items, indexs) of routerList" :key="indexs">
-      <el-submenu :index="items.path" v-if="items.children">
-        <template #title v-if="items.meta">
-          <i :class="items.meta.icon"></i>
-          <span>{{ items.meta.title }}</span>
-        </template>
-        <template v-if="items.children">
-          <el-menu-item-group>
-            <template #title></template>
-            <el-menu-item :index="item.path" v-for="(item, index) of items.children" :key="index">
-              {{ item.meta.title }}</el-menu-item
-            >
-          </el-menu-item-group>
-        </template>
-      </el-submenu>
-      <el-menu-item :index="items.path" v-else>
-        <i :class="items.meta.icon"></i>
-        <template #title>{{ items.meta.title }}</template>
-      </el-menu-item>
-    </template>
+    <SiderbarItem :list="routerList" />
   </el-menu>
 </template>
 
 <script>
 import { defineComponent, ref, getCurrentInstance } from 'vue';
 import Logo from './Logo.vue';
+import SiderbarItem from './SidebarItem.vue';
 import { ElMenu, ElMenuItem, ElMenuItemGroup, ElSubmenu } from 'element-plus';
 import { useRouter } from 'vue-router';
 import { useRouterStore } from '/@/store/modules/router';
@@ -53,6 +36,7 @@ export default defineComponent({
     ElMenu,
     ElMenuItem,
     ElSubmenu,
+    SiderbarItem,
   },
 
   setup() {
@@ -64,8 +48,8 @@ export default defineComponent({
     // console.log(getRouterTreee.getRouter);
     const routerList = getRouterTree.getRouter;
     console.log(routerList);
-    // const {  } = useRouter();
-    // console.log(getRoutes());
+    const { getRoutes } = useRouter();
+    console.log(getRoutes());
     return {
       logoUrl,
       title,
@@ -77,11 +61,4 @@ export default defineComponent({
 
 
 <style lang='scss' scoped>
-.el-menu-item.is-active {
-  background-color: #0060b9 !important;
-  color: #fff !important;
-}
-.el-menu {
-  border-right: none;
-}
 </style>

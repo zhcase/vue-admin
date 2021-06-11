@@ -6,7 +6,7 @@
  * @FilePath: /vue-admin/src/layout/Navbar.vue
 -->
 <template>
-  <el-header class="yd-header">
+  <div class="yd-header">
     <!-- Hamburger open close-->
     <div class="left-menu">
       <Hamburger @toggleClick="handleClick" style="text-align: right" />
@@ -36,12 +36,12 @@
         </div>
       </div>
     </div>
-  </el-header>
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import { ElDropdown, ElDropdownItem } from 'element-plus';
+import { ElDropdown, ElDropdownItem, ElDropdownMenu } from 'element-plus';
 import Hamburger from '/@/components/Hamburger/index.vue';
 import LayoutTrigger from '/@/components/Breadcrumb/LayoutTrigger.vue';
 export default defineComponent({
@@ -51,6 +51,7 @@ export default defineComponent({
     LayoutTrigger,
     ElDropdown,
     ElDropdownItem,
+    ElDropdownMenu,
   },
   setup() {
     function handleClick() {
