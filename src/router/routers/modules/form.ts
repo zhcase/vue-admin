@@ -15,7 +15,7 @@ const form = {
   children: [
     {
       path: 'formanalysis',
-      name: 'Analysis',
+      name: 'formanalysis',
       component: () => import('/@/views/dashboard/index.vue'),
       meta: {
         affix: true,

@@ -14,14 +14,16 @@ import { filterRouter } from '/@/utils/router/filter';
 
 // app router
 const routerStore = useRouterStoreWidthOut();
-const Menu = filterRouter(basicRoutes);
-routerStore.setRouter(Menu);
+
 const router = createRouter({
   // history:createWebHashHistory(import.meta.env.BASE_URL),
   history: createWebHashHistory(),
   routes: basicRoutes as any,
   scrollBehavior: () => ({ left: 0, top: 0 }),
 });
+
+const Menu = filterRouter(basicRoutes, router.getRoutes());
+routerStore.setRouter(Menu);
 
 export function resetRouter() {
   router.getRoutes().forEach((route) => {

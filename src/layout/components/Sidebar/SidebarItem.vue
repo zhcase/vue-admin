@@ -1,6 +1,6 @@
 <template>
   <template v-for="(items, indexs) of list" :key="indexs">
-    <el-submenu :index="items.path" v-if="items.children">
+    <el-submenu :index="getPathHistory(items.name)" v-if="items.children">
       <template #title v-if="items.meta">
         <i :class="items.meta.icon"></i>
         <span>{{ items.meta.title }}</span>
@@ -10,7 +10,7 @@
       </template>
     </el-submenu>
     <template v-else>
-      <el-menu-item :index="items.path" v-if="!items.hidden">
+      <el-menu-item :index="getPathHistory(items.name)" v-if="!items.hidden">
         <i :class="items.meta.icon"></i>
         <template #title>{{ items.meta.title }}</template>
       </el-menu-item>
@@ -19,9 +19,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, reactive, computed } from 'vue';
 import { ElMenuItem, ElSubmenu } from 'element-plus';
-
+import { useRouter } from 'vue-router';
+import { setPathHistory } from '/@/utils/router/filter.ts';
 export default defineComponent({
   name: 'SidebarItem',
   components: {
@@ -34,9 +35,14 @@ export default defineComponent({
   setup(props) {
     console.log(props);
     const { list } = reactive(props);
-    console.log(list);
+    const { getRoutes } = useRouter();
+    const pathHistory = setPathHistory(getRoutes());
+    const getPathHistory = (name) => {
+      return pathHistory[name].path;
+    };
     return {
       list,
+      getPathHistory,
     };
   },
 });

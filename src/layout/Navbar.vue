@@ -57,7 +57,6 @@ export default defineComponent({
     function handleClick() {
       console.log(23232332);
     }
-
     return {
       handleClick,
     };
