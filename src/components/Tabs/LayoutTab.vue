@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-06-04 14:05:58
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-18 16:21:05
+ * @LastEditTime: 2021-06-18 16:50:51
  * @FilePath: /vue-admin/src/components/Tabs/LayoutTab.vue
 -->
 <template>
@@ -57,8 +57,25 @@ export default defineComponent({
     /**
      *  是否选中路由
      */
-    function isActive(view) {}
+    function isActive(path) {
+      return path === currentRoute.value.path;
+    }
 
+    function toLastView(visitedViews, view) {
+      console.log(visitedViews);
+      const latestView = visitedViews.slice(-1)[0];
+      console.log(latestView.path);
+      if (latestView) {
+        push(latestView.path);
+      } else {
+        if (view.name === 'Dashboard') {
+          // to reload home page
+          this.$router.replace({ path: '/redirect' + view.fullPath });
+        } else {
+          this.$router.push('/');
+        }
+      }
+    }
     /**
      * watch router
      */
@@ -83,7 +100,12 @@ export default defineComponent({
      * tags remove
      */
     function handleRemoveTab(val) {
+      let viewList = TAGSVIESTORE.getVisitedViews;
       TAGSVIESTORE.delVisiteView(val);
+
+      if (isActive(val)) {
+        toLastView(viewList, val);
+      }
       console.log(TAGSVIESTORE.getVisitedViews);
     }
 

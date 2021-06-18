@@ -2,13 +2,13 @@
  * @Author: zeHua
  * @Date: 2021-06-02 11:54:38
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-08 14:30:10
+ * @LastEditTime: 2021-06-18 17:40:39
  * @FilePath: /vue-admin/src/layout/components/Sidebar/index.vue
 -->
 
 <template>
   <el-menu
-    default-active="2"
+    :default-active="defaultActive"
     class="el-menu-vertical-demo"
     @open="handleOpen"
     background-color="#001528"
@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import { defineComponent, ref, getCurrentInstance, watchEffect } from 'vue';
+import { defineComponent, ref, getCurrentInstance, watchEffect, watch } from 'vue';
+import { useRouter } from 'vue-router';
 import Logo from './Logo.vue';
 import SiderbarItem from './SidebarItem.vue';
 import { ElMenu, ElMenuItem, ElMenuItemGroup, ElSubmenu } from 'element-plus';
-import { useRouter } from 'vue-router';
 import { useRouterStore } from '/@/store/modules/router';
 import { useSettingStore } from '/@/store/modules/setting.ts';
 import logoAddress from '/@/assets/images/icon.png';
@@ -44,20 +44,30 @@ export default defineComponent({
   setup() {
     const title = ref('元道后台管理系统');
     const sideBarState = ref(false);
+    const defaultActive = ref('');
+    const { currentRoute } = useRouter();
     const { ctx } = getCurrentInstance();
     const getRouterTree = useRouterStore();
     const getSideBarState = useSettingStore();
     const routerList = getRouterTree.getRouter;
-    const { getRoutes } = useRouter();
+    console.log(currentRoute.value.path);
+    defaultActive.value = currentRoute.value.path;
+
     watchEffect(() => {
       sideBarState.value = getSideBarState.getSidebarLogoState;
     });
+
+    watch(currentRoute, (val) => {
+      defaultActive.value = val.path;
+    });
+    console.log(defaultActive.value);
     return {
       logoUrl,
       title,
       routerList,
       sideBarState,
       logoAddress,
+      defaultActive,
     };
   },
 });
