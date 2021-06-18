@@ -1,16 +1,22 @@
+/*
+ * @Author: zeHua
+ * @Date: 2021-06-15 14:14:46
+ * @LastEditors: zeHua
+ * @LastEditTime: 2021-06-18 15:53:37
+ * @FilePath: /vue-admin/src/router/routers/modules/dashboard.ts
+ */
 // import type { AppRouteModule } from '/@/router/types';
 
 // import { LAYOUT } from '/@/router/constant';
 // import { t } from '/@/hooks/web/useI18n';
 import { LAYOUT } from '/@/router/constant';
-console.log(LAYOUT);
 
 const dashboard = {
   path: '/dashboard',
   name: 'Dashboard',
   component: import('/@/layout/index.vue'),
   orderNo: 1,
-  // redirect: '/dashboard/analysis',
+  redirect: '/dashboard/analysis',
   meta: {
     icon: 'el-icon-menu',
     title: 'Dashboard',
@@ -19,31 +25,20 @@ const dashboard = {
     {
       path: 'analysis',
       name: 'Analysis',
-      component: import('/@/views/sys/dashboard/index.vue'),
+      component: import('/@/views/sys/dashboard/analysis/index.vue'),
       meta: {
         affix: true,
-        title: '工作台',
+        title: '分析页',
+        breadcrumb: true,
       },
     },
     {
-      path: 'analysis2',
-      name: 'Analysis2',
-      component: () => import('/@/views/sys/dashboard/index.vue'),
+      path: 'workbench',
+      name: 'Workbench',
+      component: import('/@/views/sys/dashboard/workbench/index.vue'),
       meta: {
-        affix: true,
-        title: '工作台1',
+        title: '工作台',
       },
-      children: [
-        {
-          path: 'analysis1',
-          name: 'Analysis1',
-          component: () => import('/@/views/sys/dashboard/index.vue'),
-          meta: {
-            affix: true,
-            title: '工作1',
-          },
-        },
-      ],
     },
   ],
 };

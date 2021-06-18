@@ -1,5 +1,5 @@
 <template>
-  <div> 仪表盘 </div>
+  <div> 工作台 </div>
 </template>
 
 <script lang="ts">

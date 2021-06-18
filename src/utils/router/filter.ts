@@ -7,7 +7,6 @@ import routers from 'vue-router';
  */
 export function filterRouter(router: any, routerHistory) {
   let menu = [];
-
   for (let i = 0; i < router.length; i++) {
     if (!router[i].hidden) {
       menu.push((router as any)[i]);
@@ -30,7 +29,6 @@ function compare(arr, property) {
 export function setPathHistory(routerHistory) {
   let newHistory: any = [];
   for (let i = 0; i < routerHistory.length; i++) {
-    console.log(routerHistory[i]);
     newHistory[routerHistory[i].name] = routerHistory[i];
   }
   return newHistory;

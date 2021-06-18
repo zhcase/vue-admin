@@ -11,14 +11,9 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue';
-import { useRouter } from 'vue-router';
 export default defineComponent({
   components: {},
-  setup() {
-    console.log();
-    const { getRoutes } = useRouter();
-    console.log(getRoutes());
-  },
+  setup() {},
 });
 </script>
 

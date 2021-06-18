@@ -10,7 +10,6 @@ import { useRouterStoreWidthOut } from '/@/store/modules/router';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { basicRoutes } from './routers/index';
 import { filterRouter } from '/@/utils/router/filter';
-// console.log(routerStore);
 
 // app router
 const routerStore = useRouterStoreWidthOut();
@@ -26,9 +25,7 @@ const Menu = filterRouter(basicRoutes, router.getRoutes());
 routerStore.setRouter(Menu);
 
 export function resetRouter() {
-  router.getRoutes().forEach((route) => {
-    console.log(route);
-  });
+  router.getRoutes().forEach((route) => {});
 }
 
 export default router;

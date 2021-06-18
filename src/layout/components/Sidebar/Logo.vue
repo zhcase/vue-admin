@@ -25,17 +25,10 @@ import { defineComponent, reactive } from 'vue';
 
 export default defineComponent({
   props: {
-    // logo: String,
+    logo: String,
     title: String,
   },
-  setup(props) {
-    // const { logo, title } = reactive(props);
-    // console.log(logo);
-    // return {
-    //   logo,
-    //   title,
-    // };
-  },
+  setup(props) {},
 });
 </script>
 

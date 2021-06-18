@@ -43,3 +43,18 @@ body {
     
     }
   }
+
+  // 选项卡滚动体
+  .yd-layout-tabs {
+    .el-tabs {
+      .el-tabs__nav-scroll{
+        border-bottom: 1px solid #eee;
+        padding:3px;
+      }
+      &__content {
+        display: none;
+        padding: 0 !important;
+        opacity: 0;
+      }
+    }
+  }

@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed } from 'vue';
+import { defineComponent, reactive } from 'vue';
 import { ElMenuItem, ElSubmenu } from 'element-plus';
 import { useRouter } from 'vue-router';
 import { setPathHistory } from '/@/utils/router/filter.ts';
@@ -33,13 +33,13 @@ export default defineComponent({
     list: Array,
   },
   setup(props) {
-    console.log(props);
     const { list } = reactive(props);
     const { getRoutes } = useRouter();
     const pathHistory = setPathHistory(getRoutes());
     const getPathHistory = (name) => {
       return pathHistory[name].path;
     };
+
     return {
       list,
       getPathHistory,
@@ -55,6 +55,6 @@ export default defineComponent({
   color: #fff !important;
 }
 .el-menu {
-  border-right: none;
+  /* border-right: none; */
 }
 </style>

@@ -15,13 +15,13 @@
       <!-- right content -->
       <el-container>
         <!-- navbar -->
-        <el-header class="yd-header">
+        <el-header style="height: 50px">
           <Navbar />
         </el-header>
         <LayoutTab />
         <!-- page view -->
         <el-main>
-          <router-view></router-view>
+          <AppMain />
         </el-main>
       </el-container>
     </el-container>
@@ -30,10 +30,10 @@
 <script lang='ts'>
 import { defineComponent } from 'vue';
 import { ElHeader, ElContainer, ElMain } from 'element-plus';
-
 import Sidebar from './components/Sidebar/index.vue';
 import Navbar from './Navbar.vue';
 import LayoutTab from '/@/components/Tabs/LayoutTab.vue';
+import AppMain from './AppMain.vue';
 export default defineComponent({
   name: 'Home',
   components: {
@@ -43,6 +43,7 @@ export default defineComponent({
     ElHeader,
     LayoutTab,
     ElMain,
+    AppMain,
   },
   setup() {},
 });
@@ -55,12 +56,18 @@ export default defineComponent({
   height: 100%;
   width: 100%;
   &__sidebar {
-    min-width: 210px;
+    /* width: 210px; */
     background-color: #001528;
-    overflow: hidden;
+    /* overflow: hidden; */
+    .el-menu {
+      border-right: none;
+    }
   }
   .el-header {
     padding: 0;
+  }
+  .el-main {
+    background-color: #f0f2f5;
   }
   .el-container {
     height: 100%;

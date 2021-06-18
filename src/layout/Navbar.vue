@@ -9,7 +9,11 @@
   <div class="yd-header">
     <!-- Hamburger open close-->
     <div class="left-menu">
-      <Hamburger @toggleClick="handleClick" style="text-align: right" />
+      <Hamburger
+        @toggleClick="toggleClick"
+        :isCollapse="getSideBarState.getSidebarLogoState"
+        style="text-align: right"
+      />
       <LayoutTrigger />
     </div>
     <div class="right-menu">
@@ -44,6 +48,7 @@ import { defineComponent } from 'vue';
 import { ElDropdown, ElDropdownItem, ElDropdownMenu } from 'element-plus';
 import Hamburger from '/@/components/Hamburger/index.vue';
 import LayoutTrigger from '/@/components/Breadcrumb/LayoutTrigger.vue';
+import { useSettingStore } from '/@/store/modules/setting';
 export default defineComponent({
   name: 'Navbar',
   components: {
@@ -54,11 +59,13 @@ export default defineComponent({
     ElDropdownMenu,
   },
   setup() {
-    function handleClick() {
-      console.log(23232332);
+    const getSideBarState = useSettingStore();
+    function toggleClick() {
+      getSideBarState.setSidebarLogo(!getSideBarState.getSidebarLogoState);
     }
     return {
-      handleClick,
+      toggleClick,
+      getSideBarState,
     };
   },
 });

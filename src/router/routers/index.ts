@@ -6,7 +6,6 @@
  * @FilePath: /vue-admin/src/router/routers/index.ts
  */
 
-// console.log();
 const modules = import.meta.globEager('./modules/**/*.ts');
 let routeModuleList: any = [];
 Object.keys(modules).forEach((key) => {
@@ -32,6 +31,5 @@ export const LayoutRoute = {
   // component: () => import('/@/layout/index.vue'),
   redirect: '/dashboard',
 };
-console.log(routeModuleList);
 
 export const basicRoutes = [LoginRoute, LayoutRoute, ...routeModuleList];

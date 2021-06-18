@@ -13,21 +13,24 @@
     @open="handleOpen"
     background-color="#001528"
     text-color="#fff"
+    :collapse="sideBarState"
     :router="true"
     @close="handleClose"
   >
-    <Logo :logo="logoUrl" :title="title" />
+    <Logo :logo="logoAddress" :title="title" />
     <SiderbarItem :list="routerList" />
   </el-menu>
 </template>
 
 <script>
-import { defineComponent, ref, getCurrentInstance } from 'vue';
+import { defineComponent, ref, getCurrentInstance, watchEffect } from 'vue';
 import Logo from './Logo.vue';
 import SiderbarItem from './SidebarItem.vue';
 import { ElMenu, ElMenuItem, ElMenuItemGroup, ElSubmenu } from 'element-plus';
 import { useRouter } from 'vue-router';
 import { useRouterStore } from '/@/store/modules/router';
+import { useSettingStore } from '/@/store/modules/setting.ts';
+import logoAddress from '/@/assets/images/icon.png';
 import logoUrl from '/@/assets/images/icon.png';
 export default defineComponent({
   name: 'Sidebar',
@@ -38,22 +41,23 @@ export default defineComponent({
     ElSubmenu,
     SiderbarItem,
   },
-
   setup() {
     const title = ref('元道后台管理系统');
-    console.log(useRouter());
+    const sideBarState = ref(false);
     const { ctx } = getCurrentInstance();
-    console.log(ctx);
     const getRouterTree = useRouterStore();
-    // console.log(getRouterTreee.getRouter);
+    const getSideBarState = useSettingStore();
     const routerList = getRouterTree.getRouter;
-    console.log(routerList);
     const { getRoutes } = useRouter();
-    console.log(getRoutes());
+    watchEffect(() => {
+      sideBarState.value = getSideBarState.getSidebarLogoState;
+    });
     return {
       logoUrl,
       title,
       routerList,
+      sideBarState,
+      logoAddress,
     };
   },
 });
@@ -61,4 +65,8 @@ export default defineComponent({
 
 
 <style lang='scss' scoped>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
 </style>

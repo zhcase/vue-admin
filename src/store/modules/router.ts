@@ -21,8 +21,6 @@ export const useRouterStore = defineStore({
   },
   actions: {
     setRouter(arr) {
-      console.log(arr);
-
       this.router = arr;
     },
   },

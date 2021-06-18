@@ -2,27 +2,35 @@
  * @Author: zeHua
  * @Date: 2021-06-02 16:33:13
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-08 14:30:52
+ * @LastEditTime: 2021-06-18 16:06:58
  * @FilePath: /vue-admin/src/components/Hamburger/index.vue
 -->
 <template>
   <div class="yd-hamburger" @click="toggleClick">
-    <i class="el-icon-s-fold"></i>
+    <i :class="{ 'el-icon-s-fold': !isCollapseState, 'el-icon-s-unfold': isCollapseState }"></i>
   </div>
 </template>
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, reactive, watchEffect, ref } from 'vue';
 
 export default defineComponent({
   name: 'Hamburger',
+  props: {
+    isCollapse: Boolean,
+  },
   setup(props, context) {
-    console.log(context);
+    const isCollapseState = ref(false);
+
     function toggleClick() {
-      //   this.$emit
       context.emit('toggleClick');
     }
+    watchEffect(() => {
+      isCollapseState.value = props.isCollapse;
+    });
+
     return {
       toggleClick,
+      isCollapseState,
     };
   },
 });

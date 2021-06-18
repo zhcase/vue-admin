@@ -1,3 +1,10 @@
+/*
+ * @Author: zeHua
+ * @Date: 2021-06-15 14:14:46
+ * @LastEditors: zeHua
+ * @LastEditTime: 2021-06-18 15:58:09
+ * @FilePath: /vue-admin/src/router/routers/modules/form.ts
+ */
 // import type { AppRouteModule } from '/@/router/types';
 
 // import { LAYOUT } from '/@/router/constant';
@@ -18,7 +25,6 @@ const form = {
       name: 'formanalysis',
       component: () => import('/@/views/dashboard/index.vue'),
       meta: {
-        affix: true,
         title: '基础表单',
       },
     },
