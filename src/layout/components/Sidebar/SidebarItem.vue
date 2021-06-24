@@ -1,3 +1,10 @@
+<!--
+ * @Author: zeHua
+ * @Date: 2021-06-15 14:14:27
+ * @LastEditors: zeHua
+ * @LastEditTime: 2021-06-21 16:38:40
+ * @FilePath: /vue-admin/src/layout/components/Sidebar/SidebarItem.vue
+-->
 <template>
   <template v-for="(items, indexs) of list" :key="indexs">
     <el-submenu :index="getPathHistory(items.name)" v-if="items.children">

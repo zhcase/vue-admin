@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-06-02 11:54:38
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-18 17:40:39
+ * @LastEditTime: 2021-06-21 17:27:44
  * @FilePath: /vue-admin/src/layout/components/Sidebar/index.vue
 -->
 
@@ -10,12 +10,10 @@
   <el-menu
     :default-active="defaultActive"
     class="el-menu-vertical-demo"
-    @open="handleOpen"
     background-color="#001528"
     text-color="#fff"
     :collapse="sideBarState"
     :router="true"
-    @close="handleClose"
   >
     <Logo :logo="logoAddress" :title="title" />
     <SiderbarItem :list="routerList" />
@@ -50,7 +48,7 @@ export default defineComponent({
     const getRouterTree = useRouterStore();
     const getSideBarState = useSettingStore();
     const routerList = getRouterTree.getRouter;
-    console.log(currentRoute.value.path);
+
     defaultActive.value = currentRoute.value.path;
 
     watchEffect(() => {
@@ -60,7 +58,6 @@ export default defineComponent({
     watch(currentRoute, (val) => {
       defaultActive.value = val.path;
     });
-    console.log(defaultActive.value);
     return {
       logoUrl,
       title,

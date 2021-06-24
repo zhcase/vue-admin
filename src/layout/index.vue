@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-06-02 11:23:12
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-08 14:56:39
+ * @LastEditTime: 2021-06-21 17:36:31
  * @FilePath: /vue-admin/src/layout/index.vue
 -->
 <template>
@@ -29,18 +29,19 @@
 </template>
 <script lang='ts'>
 import { defineComponent } from 'vue';
-import { ElHeader, ElContainer, ElMain } from 'element-plus';
+import { ElHeader, ElContainer, ElMain, ElAside } from 'element-plus';
 import Sidebar from './components/Sidebar/index.vue';
 import Navbar from './Navbar.vue';
 import LayoutTab from '/@/components/Tabs/LayoutTab.vue';
 import AppMain from './AppMain.vue';
 export default defineComponent({
-  name: 'Home',
+  name: 'Dashboard',
   components: {
     Sidebar,
     Navbar,
     ElContainer,
     ElHeader,
+    ElAside,
     LayoutTab,
     ElMain,
     AppMain,
@@ -57,6 +58,7 @@ export default defineComponent({
   width: 100%;
   &__sidebar {
     /* width: 210px; */
+    width: auto !important;
     background-color: #001528;
     /* overflow: hidden; */
     .el-menu {

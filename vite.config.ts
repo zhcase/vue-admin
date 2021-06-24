@@ -1,10 +1,9 @@
 import type { UserConfig, ConfigEnv } from 'vite';
-import vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue';
+import { viteMockServe } from 'vite-plugin-mock';
 
 import { loadEnv } from 'vite';
 import { resolve } from 'path';
-
-
 
 import pkg from './package.json';
 import moment from 'moment';
@@ -12,7 +11,6 @@ import moment from 'moment';
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
-
 
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
@@ -26,7 +24,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, root);
 
   // The boolean type read by loadEnv is a string. This function can be converted to boolean type
-
 
   const isBuild = command === 'build';
 
@@ -103,8 +100,13 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       ],
       exclude: ['vue-demi', 'consolidate'],
     },
-    plugins: [vue()]
+    plugins: [
+      vue(),
+      viteMockServe({
+        // default
+        mockPath: 'mock',
+        localEnabled: command === 'serve',
+      }),
+    ],
   };
-  
 };
-

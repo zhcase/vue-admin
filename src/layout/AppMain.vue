@@ -1,10 +1,17 @@
+<!--
+ * @Author: zeHua
+ * @Date: 2021-06-17 15:13:25
+ * @LastEditors: zeHua
+ * @LastEditTime: 2021-06-21 17:37:57
+ * @FilePath: /vue-admin/src/layout/AppMain.vue
+-->
 <template>
   <div>
-    <transition mode="out-in">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-    </transition>
+    <!-- <transition mode="out-in"> -->
+    <!-- <keep-alive> -->
+    <router-view></router-view>
+    <!-- </keep-alive> -->
+    <!-- </transition> -->
   </div>
 </template>
 

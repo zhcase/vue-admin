@@ -2,7 +2,7 @@
  * @Author: zeHua
  * @Date: 2021-05-31 10:21:05
  * @LastEditors: zeHua
- * @LastEditTime: 2021-06-02 10:59:59
+ * @LastEditTime: 2021-06-21 14:45:09
  * @FilePath: /vue-admin/src/views/sys/login/LoginForm.vue
 -->
 <template>
@@ -27,6 +27,8 @@ import { defineComponent, reactive } from 'vue';
 import { ElInput, ElFormItem, ElButton } from 'element-plus';
 // import { useUserStore } from '/@/store/modules/user';
 import { useMessage } from '/@/hooks/web/useMessage';
+import { loginApi } from '/@/api/sys/user';
+
 export default defineComponent({
   name: 'LoginForm',
   components: {
@@ -37,13 +39,16 @@ export default defineComponent({
   setup() {
     // const userStore = useUserStore();
     const formData = reactive({
-      account: 'admin',
-      password: 'admin',
+      username: 'vben',
+      password: '123456',
     });
     // 登陆提交
     async function handleLogin() {
-      const { createNotify } = useMessage();
-      createNotify({},'sucess');
+      let result = await loginApi(formData);
+      console.log(result);
+
+      // const { createNotify } = useMessage();
+      // createNotify({}, 'sucess');
       // const userInfo = await userStore.login();
     }
 

@@ -22,14 +22,11 @@ export const useTagsViewStore = defineStore({
     addVisitedView(view) {
       if (this.visitedViews.some((v: any) => v.path === view.path)) return;
       this.visitedViews.push(view);
-      console.log(this.visitedViews);
     },
     delVisiteView(val) {
       for (const [i, v] of this.visitedViews.entries()) {
         if (v.path === val) {
           this.visitedViews.splice(i, 1);
-          console.log(this.visitedViews);
-
           break;
         }
       }

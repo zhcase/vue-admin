@@ -20,6 +20,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import LoginForm from './LoginForm.vue';
+import { loginApi } from '/@/api/sys/user';
 export default defineComponent({
   components: {
     LoginForm,
