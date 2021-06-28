@@ -7,7 +7,9 @@
 -->
 <template>
   <ElForm>
+    <input type="text" />
     <template v-for="schema in getSchema" :key="schema.field">
+      {{ schema }}
       <FormItem :schema="schema" :getProps="getProps" />
     </template>
   </ElForm>

@@ -100,6 +100,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       ],
       exclude: ['vue-demi', 'consolidate'],
     },
+
     plugins: [
       vue(),
       viteMockServe({
@@ -108,5 +109,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         localEnabled: command === 'serve',
       }),
     ],
+    esbuild: {
+      jsxFactory: 'h',
+      jsxFragment: 'Fragment',
+      jsxInject: "import { h } from 'vue';",
+    },
   };
 };
