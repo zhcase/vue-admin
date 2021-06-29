@@ -1,6 +1,7 @@
 import {
   ElInput,
   ElSelect,
+  ElOption,
   ElRadioGroup,
   ElRadioButton,
   ElCheckbox,
@@ -15,6 +16,7 @@ import {
   ElRate,
   ElCheckboxGroup,
 } from 'element-plus';
+// import { VSelect } from '/@/components/Select/index';
 const componentMap = new Map();
 componentMap.set('Input', ElInput);
 // componentMap.set('InputGroup', ElInput.Group);
@@ -23,8 +25,11 @@ componentMap.set('Input', ElInput);
 // componentMap.set('InputTextArea', Input.TextArea);
 componentMap.set('InputNumber', ElInputNumber);
 componentMap.set('AutoComplete', ElAutocomplete);
+// componentMap.set('VSelect', VSelect);
 
 componentMap.set('Select', ElSelect);
+componentMap.set('ElOption', ElOption);
+
 // componentMap.set('ApiSelect', ApiSelect);
 componentMap.set('TreeSelect', ElTree);
 componentMap.set('Switch', ElSwitch);
